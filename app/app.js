@@ -11,5 +11,6 @@
 			templateUrl: 'partials/search.html',
 			controller: 'SearchCtrl'
 		});
+		
 	}]);
 })();
