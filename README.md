@@ -8,8 +8,8 @@ We plan to add Firebase authentication for users to store and retrieve their fav
 
 *Feature Assignments:*
  	> Real-time Search Funcionality: Kirk
-	> Front End Layout with Angular Material: Mohamed
-	> Embedded Viewer API: Teriq
+	 	Front End Layout with Angular Material: Mohamed
+		Embedded Viewer API: Teriq
 
 
 
