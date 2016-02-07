@@ -1,0 +1,21 @@
+{
+  "name": "modules",
+  "description": "",
+  "main": "",
+  "authors": [
+    "Kirk Walker Graves <graves.kirk@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jcockhren/e2-feed-search",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^3.3.6"
+  }
+}
