@@ -6,11 +6,12 @@ _SEARCHING for Godot_ also gives users the ability to preview a given book via t
 
 We plan to add Firebase authentication for users to store and retrieve their favorite books and books they'd like to read later. 
 
-## H2 Feature Assignments: 
+## Feature Assignments 
+Real-time Search Funcionality: _Kirk_
+
+Front End Layout with Angular Material: _Mohamed_
  
- Real-time Search Funcionality: _Kirk_
- Front End Layout with Angular Material: _Mohamed_
- Embedded Viewer API: _Teriq_
+Embedded Viewer API: _Teriq_
 
 
 
