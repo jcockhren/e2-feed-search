@@ -15,17 +15,8 @@
 			<tr ng-repeat="book in titleList" ng-model="titleList">
 				<td>{{ book.volumeInfo.title }}</td>
 				<td>{{ book.volumeInfo.description }}</td>
-				<td><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/>	</td>
+				<td><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/></td>
 			</tr>
-
-			<tr ng-repeat="author in authorsList" ng-model="authorsList">
-				<td>{{ book.volumeInfo.authors }}</td>
-			</tr>
-
-			<tr ng-repeat="author in authorsList" ng-model="authorsList">
-				<td>{{ book.volumeInfo.authors }}</td>
-			</tr>
-		</table>
 
 	</md-content>
 
