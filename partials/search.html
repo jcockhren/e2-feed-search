@@ -1,0 +1,32 @@
+<div flex layout="row">
+
+	<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
+
+		<md-input-container>
+			<label>Search By Title</label>
+			<input type="text" ng-model="titleQuery" ng-change="searchByTitle()" />
+		</md-input-container>
+
+	</md-sidenav>	
+
+	<md-content flex>
+
+		<table>
+			<tr ng-repeat="book in titleList" ng-model="titleList">
+				<td>{{ book.volumeInfo.title }}</td>
+				<td>{{ book.volumeInfo.description }}</td>
+				<td><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/>	</td>
+			</tr>
+
+			<tr ng-repeat="author in authorsList" ng-model="authorsList">
+				<td>{{ book.volumeInfo.authors }}</td>
+			</tr>
+
+			<tr ng-repeat="author in authorsList" ng-model="authorsList">
+				<td>{{ book.volumeInfo.authors }}</td>
+			</tr>
+		</table>
+
+	</md-content>
+
+</div>
