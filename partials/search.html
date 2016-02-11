@@ -22,11 +22,12 @@
 	<md-content flex>
 
 		<div id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
+			<a href="#/search/{{ book.id }}" ng-click="searchCtrl.selectThisBook(book)"><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/></a>
 			<h3>{{ book.volumeInfo.title }}</h3>
 			<p>{{ book.volumeInfo.description }}</p>
-			<img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/>
 		</div>
 
 	</md-content>
 
 </div>
+

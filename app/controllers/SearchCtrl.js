@@ -1,6 +1,8 @@
-app.controller('SearchCtrl', ['$http', function($http) {
+app.controller('SearchCtrl', ['$http', '$stateParams', function($http, $stateParams) {
 
 	var vm = this;
+	vm.id = $stateParams.volumeId;
+
 
 	vm.searchByTitle = function() {
 
@@ -11,7 +13,15 @@ app.controller('SearchCtrl', ['$http', function($http) {
 		}).error(function(error) {
 			console.log('Error: ', Error);
 		});
-	
+
 	};
+
+	vm.selectThisBook = function(book) {
+		console.log('selectThisBook clicked!');
+		vm.selectedBook = book;
+		console.log('vm.selectedBook.id', vm.selectedBook.id);
+		console.log('vm.selectedBook', vm.selectedBook);
+	};
+
 
 }]);
