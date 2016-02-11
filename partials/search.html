@@ -2,13 +2,13 @@
 		<h1>SEARCHING FOR GODOT</h1>
 </md-toolbar>
 
-<div flex layout="row">
+<div id="content-container" flex layout="row">
 
 	<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
 
 	<md-input-container>
 		<label>Search By Title</label>
-		<input type="text" ng-model="titleQuery" ng-change="searchByTitle()" />
+		<input type="text" ng-model="searchCtrl.titleQuery" ng-change="searchCtrl.searchByTitle()" />
 	</md-input-container>
 
 
@@ -22,7 +22,7 @@
 	<md-content flex>
 
 	<table>
-		<tr ng-repeat="book in titleList" ng-model="titleList">
+		<tr ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
 			<td>{{ book.volumeInfo.title }}</td>
 			<td>{{ book.volumeInfo.description }}</td>
 			<td><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/>	</td>

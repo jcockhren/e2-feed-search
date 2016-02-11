@@ -5,9 +5,9 @@ app.controller('SearchCtrl', ['$http', function($http) {
 	vm.searchByTitle = function() {
 
 		$http.get('https://www.googleapis.com/books/v1/volumes?q=' + vm.titleQuery)
-		.success(function(googleBooksResponse) {
-			vm.bookTitleList = googleBooksResponse.data.items;
-			console.log('vm.bookTitleList', vm.bookTitleList);
+		.success(function(response) {
+			console.log('response', response);
+			vm.bookTitleList =  response.items;
 		}).error(function(error) {
 			console.log('Error: ', Error);
 		});

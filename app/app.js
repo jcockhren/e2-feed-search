@@ -8,7 +8,8 @@
 		.state('search', {
 			url: '/search',
 			templateUrl: 'partials/search.html',
-			controller: 'SearchCtrl'
+			controller: 'SearchCtrl',
+			controllerAs: 'searchCtrl'
 		});
 		
 	}]);
