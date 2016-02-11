@@ -1,4 +1,3 @@
-(function() {
 	var app = angular.module('BooksApp', ['ui.router', 'ui.bootstrap', 'ngMaterial']);
 
 	app.config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', 
@@ -13,4 +12,3 @@
 		});
 		
 	}]);
-})();
