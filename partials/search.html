@@ -21,23 +21,11 @@
 
 	<md-content flex>
 
-	<table>
-		<tr ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
-			<td>{{ book.volumeInfo.title }}</td>
-			<td>{{ book.volumeInfo.description }}</td>
-			<td><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/>	</td>
-		</tr>
-
-		<tr ng-repeat="author in authorsList" ng-model="authorsList">
-			<td>{{ book.volumeInfo.authors }}</td>
-		</tr>
-
-		<tr ng-repeat="author in authorsList" ng-model="authorsList">
-			<td>{{ book.volumeInfo.authors }}</td>
-		</tr>
-	</table>
-
-
+		<div id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
+			<h3>{{ book.volumeInfo.title }}</h3>
+			<p>{{ book.volumeInfo.description }}</p>
+			<img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/>
+		</div>
 
 	</md-content>
 
