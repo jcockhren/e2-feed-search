@@ -5,9 +5,11 @@ app.controller('PreviewCtrl', ['$routeParams', function($routeParams) {
 	vm.volumeId = $routeParams.volumeId;
 	console.log('vm.volumeId', vm.volumeId);
 
-
-
 	
+
+
+
+
 
 
 

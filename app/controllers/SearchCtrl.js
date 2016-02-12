@@ -1,7 +1,7 @@
 app.controller('SearchCtrl', ['$http', '$stateParams', function($http, $stateParams) {
 
 	var vm = this;
-	vm.id = $stateParams.volumeId;
+	vm.volumeId = $stateParams.volumeId;
 
 
 	vm.searchByTitle = function() {
