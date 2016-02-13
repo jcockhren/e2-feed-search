@@ -12,10 +12,11 @@
 			controllerAs: 'searchCtrl'
 		})
 		.state('preview', {
-			url: '/search/:volumeId',
+			url: '/search/preview',
+			params: {bookPreview: 'book'},
 			templateUrl: 'partials/book-preview.html',
-			controller: 'SearchCtrl',
-			controllerAs: 'searchCtrl'
+			controller: 'PreviewCtrl',
+			controllerAs: 'previewCtrl'
 		});
 		
 	}]);

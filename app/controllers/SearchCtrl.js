@@ -1,4 +1,4 @@
-app.controller('SearchCtrl', ['$http', '$stateParams', function($http, $stateParams) {
+app.controller('SearchCtrl', ['$http', '$stateParams', '$state', function($http, $stateParams, $state) {
 
 	var vm = this;
 	vm.volumeId = $stateParams.volumeId;
@@ -17,10 +17,9 @@ app.controller('SearchCtrl', ['$http', '$stateParams', function($http, $statePar
 	};
 
 	vm.selectThisBook = function(book) {
-		console.log('selectThisBook clicked!');
 		vm.selectedBook = book;
-		console.log('vm.selectedBook.id', vm.selectedBook.id);
 		console.log('vm.selectedBook', vm.selectedBook);
+		// $state.go('preview');
 	};
 
 

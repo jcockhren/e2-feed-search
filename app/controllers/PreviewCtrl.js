@@ -1,17 +1,9 @@
-app.controller('PreviewCtrl', ['$routeParams', function($routeParams) {
+app.controller('PreviewCtrl', ['$stateParams', function($stateParams) {
 
 	var vm = this;
 
-	vm.volumeId = $routeParams.volumeId;
-	console.log('vm.volumeId', vm.volumeId);
-
-	
-
-
-
-
-
-
+	console.log('$stateParams', $stateParams);
+	vm.book = $stateParams.bookPreview;
 
 
 }]);
