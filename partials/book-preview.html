@@ -2,11 +2,15 @@
 		<h1>SEARCHING FOR GODOT</h1>
 </md-toolbar>
 
-<md-content id="embed-preview" flex>
-	<div>	
+<div id="embed-preview" layout="row" layout-margin>
+	
+	<div flex="50">	
 		<h1>{{ previewCtrl.book.volumeInfo.title }}</h1>
+		<h3>{{previewCtrl.book.volumeInfo.authors[0]}}</h3>
 		<p>{{ previewCtrl.book.volumeInfo.description }}</p>
 	</div>
 
-	<div id="viewerCanvas" style="width: 600px; height: 500px"></div>
-</md-content>
+	<div flex="50" id="viewerCanvas" style="width: 600px; height: 500px">
+	</div>
+
+</div>

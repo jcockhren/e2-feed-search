@@ -3,15 +3,14 @@
 </md-toolbar>
 
 
-<div>
-	<md-input-container>
+<div layout="row" layout-margin>
+	
+	<md-input-container flex="30">
 		<label>Search By Title</label>
 		<input type="text" ng-model="searchCtrl.titleQuery" ng-change="searchCtrl.searchByTitle()" />
 	</md-input-container>
-</div>
 
-<div>
-	<md-content flex>
+	<md-content flex="70">
 		<div id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
 			<a ui-sref="preview({bookPreview: book})" ng-click="searchCtrl.selectThisBook(book)"><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/></a>
 			<h3>{{ book.volumeInfo.title }}</h3>
@@ -19,5 +18,6 @@
 			<md-divider md-inset ng-if="searchCtrl.bookTitleList"></md-divider>
 		</div>
 	</md-content>
+
 </div>
 

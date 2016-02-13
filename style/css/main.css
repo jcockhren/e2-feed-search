@@ -6,6 +6,8 @@
   background-size: cover; }
 
 #splash h1 {
+  padding-top: 180px;
+  padding-bottom: 200px;
   font-size: 10em;
   color: white;
   text-align: center; }
@@ -28,17 +30,23 @@ md-sidenav {
 md-content {
   margin-top: 15px; }
 
-md-input-container {
-  margin-left: 10px;
-  width: 80%; }
+input {
+  font-size: 1.8em; }
 
 img {
   padding-top: 10px; }
 
-#volume-content {
-  margin-left: 15px; }
-
 #embed-preview {
-  width: 70%; }
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+
+#embed-preview p {
+  font-size: 18px; }
+
+#volume-content {
+  margin-left: 15px;
+  padding-left: 40px;
+  padding-right: 40px; }
 
 /*# sourceMappingURL=main.css.map */
