@@ -2,32 +2,22 @@
 		<h1>SEARCHING FOR GODOT</h1>
 </md-toolbar>
 
-<div id="content-container" flex layout="row">
 
-	<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
-
+<div>
 	<md-input-container>
 		<label>Search By Title</label>
 		<input type="text" ng-model="searchCtrl.titleQuery" ng-change="searchCtrl.searchByTitle()" />
 	</md-input-container>
+</div>
 
-
-	<md-input-container>
-		<label>Search By Author</label>
-		<input type="text" ng-model="authorQuery" ng-change="searchByAuthor()" />
-	</md-input-container>
-
-	</md-sidenav>	
-
+<div>
 	<md-content flex>
-
 		<div id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
 			<a ui-sref="preview({bookPreview: book})" ng-click="searchCtrl.selectThisBook(book)"><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/></a>
 			<h3>{{ book.volumeInfo.title }}</h3>
 			<p>{{ book.volumeInfo.description }}</p>
+			<md-divider md-inset ng-if="searchCtrl.bookTitleList"></md-divider>
 		</div>
-
 	</md-content>
-
 </div>
 

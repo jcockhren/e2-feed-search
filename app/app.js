@@ -5,6 +5,12 @@
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
+		.state('splash', {
+			url: '/',
+			templateUrl: '/partials/splash.html',
+			controller: 'SplashCtrl',
+			controllerAs: 'splashCtrl'
+		})
 		.state('search', {
 			url: '/search',
 			templateUrl: 'partials/search.html',
