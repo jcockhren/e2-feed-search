@@ -35,6 +35,9 @@ md-content {
   margin-left: auto;
   margin-right: auto; }
 
+md-card-title-text h4 {
+  padding-left: 25px; }
+
 input {
   font-size: 1.8em; }
 
@@ -50,6 +53,7 @@ img {
   font-size: 18px; }
 
 #volume-content {
+  font-size: 18px;
   margin-left: 15px;
   padding-left: 40px;
   padding-right: 40px; }

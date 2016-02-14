@@ -11,12 +11,23 @@
 	</md-input-container>
 
 	<md-content flex="70">
-		<div id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
-			<a ui-sref="preview({bookPreview: book})" ng-click="searchCtrl.selectThisBook(book)"><img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/></a>
-			<h3>{{ book.volumeInfo.title }}</h3>
-			<p>{{ book.volumeInfo.description }}</p>
-			<md-divider md-inset ng-if="searchCtrl.bookTitleList"></md-divider>
-		</div>
+		<md-card id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
+			<md-card-title>
+				<md-card-title-media>
+					<img style="width: 175px; heigh: 225px" ng-src="{{ book.volumeInfo.imageLinks.smallThumbnail }}"/>
+        </md-card-title-media>
+				<md-card-title-text>
+					<h4 class="md-headline">{{ book.volumeInfo.title }}</h4>
+				</md-card-title-text>
+			</md-card-title>
+				<md-card-content>
+					<p>{{ book.volumeInfo.description }}</p>
+				<md-card-actions>
+					<md-button class="md-primary" ui-sref="preview({bookPreview: book})" ng-click="searchCtrl.selectThisBook(book)">View Book</md-button>
+				</md-card-actions>
+				</md-card-content>
+		</md-card>
+		<md-divider md-inset ng-if="searchCtrl.bookTitleList"></md-divider>
 	</md-content>
 
 </div>
