@@ -8,6 +8,7 @@
 	<md-input-container flex="30">
 		<label>Search for a book!</label>
 		<input type="text" ng-model="searchCtrl.titleQuery" ng-change="searchCtrl.searchByTitle()" />
+		<md-button class="md-warn md-raised" ng-click="searchCtrl.clear()">CLEAR SELECTION</md-button>
 	</md-input-container>
 
 	<md-content flex="70">
@@ -23,7 +24,7 @@
 				<md-card-content>
 					<p>{{ book.volumeInfo.description }}</p>
 				<md-card-actions>
-					<md-button class="md-primary" ui-sref="preview({bookPreview: book})" ng-click="searchCtrl.selectThisBook(book)">View Book</md-button>
+					<md-button class="md-primary md-raised" ui-sref="preview({bookPreview: book})" ng-click="searchCtrl.selectThisBook(book)">View Book</md-button>
 				</md-card-actions>
 				</md-card-content>
 		</md-card>
