@@ -7,7 +7,7 @@
 	
 	<md-input-container flex="30">
 		<label>Search for a book!</label>
-		<input type="text" ng-model="searchCtrl.titleQuery" ng-change="searchCtrl.searchByTitle()" />
+		<input type="text" ng-model="item" uib-typeahead="item as item.volumeInfo.title for item in searchCtrl.searchByTitle($viewValue)" ng-change="searchCtrl.searchByTitle(title)" />
 		<md-button class="md-warn md-raised" ng-click="searchCtrl.clear()">CLEAR SELECTION</md-button>
 	</md-input-container>
 
@@ -15,7 +15,7 @@
 		<md-card id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
 			<md-card-title>
 				<md-card-title-media>
-					<img style="width: 175px; heigh: 225px" ng-src="{{ book.volumeInfo.imageLinks.smallThumbnail }}"/>
+					<img style="width: 150px; heigh: 200px" ng-src="{{ book.volumeInfo.imageLinks.smallThumbnail }}"/>
         </md-card-title-media>
 				<md-card-title-text>
 					<h4 class="md-headline">{{ book.volumeInfo.title }}</h4>

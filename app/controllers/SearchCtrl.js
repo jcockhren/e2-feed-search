@@ -5,20 +5,30 @@ app.controller('SearchCtrl', ['$http', '$stateParams', '$state', function($http,
 	vm.volumeId = $stateParams.volumeId;
 
 
-	vm.searchByTitle = function() {
+	vm.searchByTitle = function(title) {
 
-		$http.get('https://www.googleapis.com/books/v1/volumes?q=' + vm.titleQuery)
+		$http.get('https://www.googleapis.com/books/v1/volumes?', { 
+			params: {
+				q : title
+			}
+		})
 		.success(function(response) {
 			console.log('response', response);
 			vm.bookTitleList =  response.items;
-		}).error(function(error) {
-			console.log('Error: ', Error);
+			return vm.bookTitleList.map(function(item) {
+				console.log('item.volumeInfo.title', item.volumeInfo.title);
+				return item.volumeInfo.title;
+			});
 		});
+		// .error(function(error) {
+		// 	console.log('Error: ', Error);
+		// });
 
 	};
 
 	vm.clear = function() {
-		vm.titleQuery = "";
+		vm.search_input = document.getElementById('search-input');
+		$viewValue = null;
 		vm.bookTitleList = {};
 	};
 
