@@ -1,19 +1,20 @@
-body {
-  padding-top: 70px;
+#splash {
   background: url("http://www.walldevil.com/wallpapers/a78/library-leather-couch-book-shelf.jpg") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover; }
 
-md-toolbar {
-  position: fixed;
-  top: 0; }
+#splash h1 {
+  padding-top: 180px;
+  padding-bottom: 200px;
+  font-size: 10em;
+  color: white;
+  text-align: center; }
 
-#content-container {
-  margin-left: auto;
-  margin-right: auto;
-  width: 80%; }
+md-toolbar {
+  margin-bottom: 75px;
+  top: 0; }
 
 h1 {
   margin-left: auto;
@@ -29,11 +30,32 @@ md-sidenav {
 md-content {
   margin-top: 15px; }
 
-md-input-container {
-  margin-left: 10px;
-  width: 80%; }
+#search-container {
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto; }
+
+md-card-title-text h4 {
+  padding-left: 25px; }
+
+input {
+  font-size: 1.8em; }
+
+img {
+  padding-top: 10px; }
+
+#embed-preview {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto; }
+
+#embed-preview p {
+  font-size: 18px; }
 
 #volume-content {
-  margin-left: 15px; }
+  font-size: 18px;
+  margin-left: 15px;
+  padding-left: 40px;
+  padding-right: 40px; }
 
 /*# sourceMappingURL=main.css.map */

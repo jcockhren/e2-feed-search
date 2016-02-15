@@ -5,11 +5,24 @@
 		$urlRouterProvider.otherwise('/');
 
 		$stateProvider
+		.state('splash', {
+			url: '/',
+			templateUrl: '/partials/splash.html',
+			controller: 'SplashCtrl',
+			controllerAs: 'splashCtrl'
+		})
 		.state('search', {
 			url: '/search',
 			templateUrl: 'partials/search.html',
 			controller: 'SearchCtrl',
 			controllerAs: 'searchCtrl'
+		})
+		.state('preview', {
+			url: '/search/preview',
+			params: {bookPreview: 'book'},
+			templateUrl: 'partials/book-preview.html',
+			controller: 'PreviewCtrl',
+			controllerAs: 'previewCtrl'
 		});
 		
 	}]);

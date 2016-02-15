@@ -2,31 +2,34 @@
 		<h1>SEARCHING FOR GODOT</h1>
 </md-toolbar>
 
-<div id="content-container" flex layout="row">
 
-	<md-sidenav md-is-locked-open="true" class="md-whiteframe-z2">
-
-	<md-input-container>
-		<label>Search By Title</label>
+<div id="search-container" layout="row" layout-margin>
+	
+	<md-input-container flex="30">
+		<label>Search for a book!</label>
 		<input type="text" ng-model="searchCtrl.titleQuery" ng-change="searchCtrl.searchByTitle()" />
+		<md-button class="md-warn md-raised" ng-click="searchCtrl.clear()">CLEAR SELECTION</md-button>
 	</md-input-container>
 
-
-	<md-input-container>
-		<label>Search By Author</label>
-		<input type="text" ng-model="authorQuery" ng-change="searchByAuthor()" />
-	</md-input-container>
-
-	</md-sidenav>	
-
-	<md-content flex>
-
-		<div id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
-			<h3>{{ book.volumeInfo.title }}</h3>
-			<p>{{ book.volumeInfo.description }}</p>
-			<img ng-src="{{ book.volumeInfo.imageLinks.thumbnail }}"/>
-		</div>
-
+	<md-content flex="70">
+		<md-card id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
+			<md-card-title>
+				<md-card-title-media>
+					<img style="width: 175px; heigh: 225px" ng-src="{{ book.volumeInfo.imageLinks.smallThumbnail }}"/>
+        </md-card-title-media>
+				<md-card-title-text>
+					<h4 class="md-headline">{{ book.volumeInfo.title }}</h4>
+				</md-card-title-text>
+			</md-card-title>
+				<md-card-content>
+					<p>{{ book.volumeInfo.description }}</p>
+				<md-card-actions>
+					<md-button class="md-primary md-raised" ui-sref="preview({bookPreview: book})" ng-click="searchCtrl.selectThisBook(book)">View Book</md-button>
+				</md-card-actions>
+				</md-card-content>
+		</md-card>
+		<md-divider md-inset ng-if="searchCtrl.bookTitleList"></md-divider>
 	</md-content>
 
 </div>
+
