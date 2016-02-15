@@ -20,7 +20,7 @@ app.controller('SearchCtrl', ['$http', '$timeout', '$stateParams', '$state', fun
 	};
 
 	vm.searchCall = function() {
-		$timeout(vm.searchByTitle, 500);
+		$timeout(vm.searchByTitle, 200);
 	};
 
 	vm.clear = function() {
