@@ -6,8 +6,24 @@
 <div id="search-container" layout="row" layout-margin>
 	
 	<md-input-container flex="30">
-		<label>Search for a book!</label>
-		<input type="text" ng-model="item" uib-typeahead="item as item.volumeInfo.title for item in searchCtrl.searchByTitle($viewValue)" ng-change="searchCtrl.searchByTitle(title)" />
+		<md-autocomplete
+          ng-disabled="searchCtrl.isDisabled"
+          md-no-cache="searchCtrl.noCache"
+          md-selected-item="searchCtrl.selectedItem"
+          md-search-text-change="searchCtrl.searchCall(searchCtrl.searchText)"
+          md-search-text="searchCtrl.searchText"
+          md-selected-item-change="searchCtrl.selectedItemChange(item)"
+          md-items="item in searchCtrl.bookTitleList"
+          md-item-text="item.volumeInfo.title"
+          md-min-length="3">
+    	<md-item-template>
+          <span md-highlight-text="searchCtrl.searchText" md-highlight-flags="^i">{{item.volumeInfo.title}}</span>
+      </md-item-template>
+      <md-not-found>
+        No matches found for "{{searchCtrl.searchText}}".
+      </md-not-found>
+		</md-autocomplete>
+		<!-- <input type="text" ng-model="item" uib-typeahead="item as item.volumeInfo.title for item in searchCtrl.searchByTitle($viewValue)" ng-change="searchCtrl.searchByTitle(title)" /> -->
 		<md-button class="md-warn md-raised" ng-click="searchCtrl.clear()">CLEAR SELECTION</md-button>
 	</md-input-container>
 

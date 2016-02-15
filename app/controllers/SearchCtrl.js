@@ -1,35 +1,32 @@
-app.controller('SearchCtrl', ['$http', '$stateParams', '$state', function($http, $stateParams, $state) {
+app.controller('SearchCtrl', ['$http', '$timeout', '$stateParams', '$state', function($http, $timeout, $stateParams, $state) {
 
 	var vm = this;
-	vm.bookTitleList;
-	vm.volumeId = $stateParams.volumeId;
+	vm.selectedItem = null;
+  vm.searchText = null;
+	vm.bookTitleList = null;
 
 
-	vm.searchByTitle = function(title) {
+	vm.searchByTitle = function() {
 
-		$http.get('https://www.googleapis.com/books/v1/volumes?', { 
-			params: {
-				q : title
-			}
-		})
+		$http.get('https://www.googleapis.com/books/v1/volumes?q=' + vm.searchText)
 		.success(function(response) {
-			console.log('response', response);
-			vm.bookTitleList =  response.items;
-			return vm.bookTitleList.map(function(item) {
-				console.log('item.volumeInfo.title', item.volumeInfo.title);
-				return item.volumeInfo.title;
-			});
-		});
-		// .error(function(error) {
+			vm.bookTitleList = response.items;
+			return response.items;
+		// 	vm.bookTitleList =  response.items;
+		// }).error(function(error) {
 		// 	console.log('Error: ', Error);
-		// });
+		});
 
 	};
 
+	vm.searchCall = function() {
+		$timeout(vm.searchByTitle, 500);
+	};
+
 	vm.clear = function() {
-		vm.search_input = document.getElementById('search-input');
-		$viewValue = null;
+		vm.searchText = "";
 		vm.bookTitleList = {};
+		// Not sure how to get this function to clear the md-divider after the array of returned books is cleared out.
 	};
 
 	vm.selectThisBook = function(book) {
