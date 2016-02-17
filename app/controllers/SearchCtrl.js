@@ -1,25 +1,32 @@
-app.controller('SearchCtrl', ['$http', '$stateParams', '$state', function($http, $stateParams, $state) {
+app.controller('SearchCtrl', ['$http', '$timeout', '$stateParams', '$state', function($http, $timeout, $stateParams, $state) {
 
 	var vm = this;
-	vm.bookTitleList;
-	vm.volumeId = $stateParams.volumeId;
+	vm.selectedItem = null;
+  vm.searchText = null;
+	vm.bookTitleList = null;
 
 
 	vm.searchByTitle = function() {
 
-		$http.get('https://www.googleapis.com/books/v1/volumes?q=' + vm.titleQuery)
+		$http.get('https://www.googleapis.com/books/v1/volumes?q=' + vm.searchText)
 		.success(function(response) {
-			console.log('response', response);
-			vm.bookTitleList =  response.items;
-		}).error(function(error) {
-			console.log('Error: ', Error);
+			vm.bookTitleList = response.items;
+			return response.items;
+		// 	vm.bookTitleList =  response.items;
+		// }).error(function(error) {
+		// 	console.log('Error: ', Error);
 		});
 
 	};
 
+	vm.searchCall = function() {
+		$timeout(vm.searchByTitle, 200);
+	};
+
 	vm.clear = function() {
-		vm.titleQuery = "";
+		vm.searchText = "";
 		vm.bookTitleList = {};
+		// Not sure how to get this function to clear the md-divider after the array of returned books is cleared out.
 	};
 
 	vm.selectThisBook = function(book) {

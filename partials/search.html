@@ -5,17 +5,32 @@
 
 <div id="search-container" layout="row" layout-margin>
 	
-	<md-input-container flex="30">
-		<label>Search for a book!</label>
-		<input type="text" ng-model="searchCtrl.titleQuery" ng-change="searchCtrl.searchByTitle()" />
+	<md-input-container flex="40">
 		<md-button class="md-warn md-raised" ng-click="searchCtrl.clear()">CLEAR SELECTION</md-button>
+		<md-autocomplete
+          ng-disabled="searchCtrl.isDisabled"
+          md-no-cache="searchCtrl.noCache"
+          md-selected-item="searchCtrl.selectedItem"
+          md-search-text-change="searchCtrl.searchCall(searchCtrl.searchText)"
+          md-search-text="searchCtrl.searchText"
+          md-selected-item-change="searchCtrl.selectedItemChange(item)"
+          md-items="item in searchCtrl.bookTitleList"
+          md-item-text="item.volumeInfo.title"
+          md-min-length="3">
+    	<md-item-template>
+          <span md-highlight-text="searchCtrl.searchText" md-highlight-flags="^i">{{item.volumeInfo.title}}</span>
+      </md-item-template>
+      <md-not-found>
+        No matches found for "{{searchCtrl.searchText}}".
+      </md-not-found>
+		</md-autocomplete>
 	</md-input-container>
 
-	<md-content flex="70">
+	<md-content flex="60">
 		<md-card id="volume-content" ng-repeat="book in searchCtrl.bookTitleList" ng-model="searchCtrl.bookTitleList">
 			<md-card-title>
 				<md-card-title-media>
-					<img style="width: 175px; heigh: 225px" ng-src="{{ book.volumeInfo.imageLinks.smallThumbnail }}"/>
+					<img style="width: 150px; height: 200px" ng-src="{{ book.volumeInfo.imageLinks.smallThumbnail }}"/>
         </md-card-title-media>
 				<md-card-title-text>
 					<h4 class="md-headline">{{ book.volumeInfo.title }}</h4>

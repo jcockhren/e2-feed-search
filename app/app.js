@@ -1,4 +1,4 @@
-	var app = angular.module('BooksApp', ['ui.router', 'ui.bootstrap', 'ngMaterial']);
+	var app = angular.module('BooksApp', ['ui.router', 'ngMaterial']);
 
 	app.config(['$stateProvider', '$urlRouterProvider', '$mdThemingProvider', 
 		function($stateProvider, $urlRouterProvider, $mdThemingProvider) {
